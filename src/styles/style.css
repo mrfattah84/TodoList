@@ -1,0 +1,247 @@
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+  
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+  
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+  
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+  
+.roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+  
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+  
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+.roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+  
+.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+  
+.roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+}
+
+.sidebar{
+    width: 20vw;
+    height: 100vh;
+    background-color: #8ECAE6;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0px;
+    box-shadow: 1px 0px 10px gray;
+}
+
+.sidebar h1{
+    font-size: 50px;
+}
+
+.sidebar h2{
+    margin-bottom: 10px;
+}
+
+.myProjects{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 12px 0px 10px;
+}
+
+.myProjects i{
+    width: 15px;
+}
+
+.sidebar h4{
+    margin-top: 5px;
+    align-self: flex-start;
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.sidebar h4:hover{
+    background-color: rgba(100,100,100,30%);
+}
+
+.sidebar h4 i{
+    width: 20px;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.projects{
+    padding: 10px 0px;
+}
+
+.project{
+    display: flex;
+    height: 20px;
+    margin: 0px 10px;
+    padding: 6px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.project:hover{
+    background-color: rgba(100,100,100,30%);
+}
+
+.project:focus-visible{
+    background-color: #219EBC;
+}
+
+.project i{
+    width: 20px;
+    margin-right: 8px;
+}
+
+.project .doCount{
+    margin-left: auto;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.container{
+    width: 50vw;
+    padding-top: 30px;
+}
+
+.container h2{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.seperator{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.toDoContainer{
+    display: grid;
+    grid-template-columns: 1;
+    gap: 5px;
+}
+
+.toDoCard{
+    display: flex;
+    padding: 5px;
+    border-top: 1px solid black;
+}
+
+.toDoCard input{
+    align-self: flex-start;
+    margin: 5px;
+}
+
+.toDoCard .due{
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.toDoCard .info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.toDoAdd, .taskAdd{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 10px;
+    background-color: #219EBC;
+    border: 2px solid black;
+}
+
+.toDoAdd::backdrop, .taskAdd::backdrop{
+    color: rgba(100, 100, 100, 30%);
+}
+
+.toDoAdd form, .taskAdd form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.toDoAdd h1, .taskAdd h1{
+    font-size: 20px;
+}
+
+.toDoAdd label{
+    display: flex;
+    justify-content: space-between;
+}
+
+.toDoAdd form *, .taskAdd form *{
+ padding: 10px;
+ margin: 2px;
+ border: none;
+ border-radius: 5px;
+ background-color: #F9E0D9;
+}

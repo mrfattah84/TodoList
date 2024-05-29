@@ -2,7 +2,7 @@
   "name": "todolist",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve"
