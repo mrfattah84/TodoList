@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import * as app from './app.js'
 import * as dom from './dom.js'
 import projects from './index'
@@ -24,8 +25,14 @@ export function addNewTask(e){
     const priority = e.target.elements[3].value;
     const project = e.target.elements[4].value;
     form.reset();
-    const task = app.createToDo(title,discription,new Date(due),0,priority)
-    projects[project].addTodo(task);
+    if (dom.id == 0) {
+        const task = app.createToDo(title,discription,new Date(due),0,priority)
+        projects[project].addTodo(uuidv4(), task);
+    } else {
+        const task = app.createToDo(title,discription,new Date(due),0,priority)
+        projects[project].addTodo(dom.id, task);
+    }
     dom.loadProjects()
     dom.loadProject(project)
+    dom.idReset();
 }

@@ -8,15 +8,8 @@ let projects = [];
 export default projects;
 projects[0] = app.createProject('Main', 'Your Main Project');
 
-
-const do1 = app.createToDo('Date', 'somewhere nice', new Date(2025,2,11), 0, 0);
-projects[0].addTodo(do1);
-projects[0].addTodo(do1);
-projects[0].addTodo(do1);
-console.log(projects);
-
-
 dom.loadProjects();
+dom.loadProject(0);
 document.querySelector('.newTask').addEventListener('click', newTask.loadModal)
 document.querySelector(".toDoAdd form").addEventListener("submit", newTask.addNewTask)
 document.querySelector('.newProject').addEventListener('click', newProject.loadModal)
