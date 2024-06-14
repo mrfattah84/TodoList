@@ -1,4 +1,4 @@
-import { format, formatDistance, formatRelative, subDays } from 'date-fns'
+import { format, formatDistance, formatRelative, addDays } from 'date-fns'
 import projects from './index'
 import * as newTask from './newTask'
 
@@ -42,7 +42,7 @@ export function loadProject(i){
     for (const key in todos) {
         if (todos.hasOwnProperty(key)) {
           const Do = todos[key];
-          if (Do.status == 0) {
+          if (Do.status == 0 && Do.due >= new Date()) {
             toDoContainer.innerHTML += `
             <div class="toDoCard" title="${Do.note}" id="${key}">
                 <input type="checkbox" name="${key}" id="${key}">
@@ -80,9 +80,41 @@ function checkDo(i, id) {
 function countDos(dos) {
     let i = 0;
     Object.keys(dos).forEach(key => {
-        if (dos[key].status == 0) {
+        if (dos[key].status == 0 && dos[key].due >= new Date()) {
             i++;
         }
     })
     return i
+}
+
+export function loadToday() {
+    document.querySelector('.container .pName').innerHTML = 'Today';
+    const toDoContainer = document.querySelector('.toDoContainer');
+    toDoContainer.innerHTML = '';
+
+    for (let i = 0; i < projects.length; i++) {
+        const todos = Object.fromEntries(Object.entries(projects[i].toDo).sort(([,a],[,b]) => b.priority-a.priority));
+        for (const key in todos) {
+            if (todos.hasOwnProperty(key)) {
+              const Do = todos[key];
+              if (Do.status == 0 && Do.due >= new Date()) {
+                if (Do.due <= addDays(new Date(), 1)) {
+                    const element = document.createElement('div');
+                    element.innerHTML = `
+                        <input type="checkbox" name="${key}" id="${key}">
+                        <div class="info">
+                            <div class="title">${Do.title}</div>
+                            <div class="due">${formatDistance(Do.due, new Date(), { addSuffix: true })}</div>
+                        </div>`;
+                    element.classList.add("toDoCard");
+                    element.setAttribute('title', Do.note);
+                    element.setAttribute('id', key);
+                    element.querySelector('.info').addEventListener('click', e => {editDo(e, i)});
+                    element.querySelector('input').addEventListener('click', e => {checkDo(i, e.target.id)});
+                    toDoContainer.appendChild(element);
+                }
+              }
+            }
+        }
+    }
 }
